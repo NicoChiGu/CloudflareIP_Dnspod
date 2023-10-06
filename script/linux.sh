@@ -2,11 +2,11 @@
 #RUN CLOUDFLARETEST
 
 #此处修改CloudflareST程序储存的位置,并基于权限 chmod +x CloudflareST
-/root/cloudflare/CloudflareST -p 10
-rm /root/cloudflare/getip.txt
-#在根目录下生成getip.txt文件为最优前两个IP
-cut -d ',' -f 1 /root/cloudflare/result.csv | head -n 3 | tail -n 2 >> /root/cloudflare/getip.txt
-cat /root/cloudflare/getip.txt
+folder=/root/cloudflare
+$folder/CloudflareST -p 10 
+rm $folder/getip.txt
+cut -d ',' -f 1 $folder/result.csv | head -n 3 | tail -n 2 >> $folder/getip.txt
+cat $folder/getip.txt
 
 
 ####全局变量
@@ -19,18 +19,18 @@ action="ModifyRecord"
 version="2021-03-23"
 algorithm="TC3-HMAC-SHA256"
 timestamp=$(date +%s)
-Language=zh-CN
 date=$(date -u -d @$timestamp +"%Y-%m-%d")
 
 ###CURL1 修改记录
-Domain= #域名
+Domain=        #域名
 SubDomain=     #子域名
 RecordType=A      #记录模式(A,CHAME)
 RecordLine=默认   #线路模式(默认,电信,联通...)
-Value=$(cat /root/cloudflare/getip.txt | sed -n '1p') #获取首个IP
+Value=$(cat $folder/getip.txt | sed -n '1p') #获取首个IP
 TTL=3600
-RecordId=  #记录ID
+RecordId=       #记录ID
 Status=ENABLE        #启动记录
+
 payloadtmp="{\"Domain\":\"$Domain\",\"SubDomain\":\"$SubDomain\",\"RecordType\":\"$RecordType\",\"RecordLine\":\"$RecordLine\",\"Value\":\"$Value\",\"TTL\":$TTL,\"Status\":\"$ENABLE\",\"RecordId\":$RecordId}"
 payload=$(echo $payloadtmp |iconv -t utf-8)
 echo $payload
@@ -59,13 +59,15 @@ authorization="$algorithm Credential=$SecretId/$date/$service/tc3_request, Signe
 curl -XPOST "https://$host" -d "$payload" -H "Authorization: $authorization" -H "Content-Type: application/json; charset=utf-8" -H "Host: $host" -H "X-TC-Action: $action" -H "X-TC-Timestamp: $timestamp" -H "X-TC-Version: $version" -H "X-TC-Region: $region"
 
 ###CURL2 修改记录
-Domain=szapo.shop
-SubDomain=cdn
+Domain=
+SubDomain=
 RecordType=A
 RecordLine=默认
-Value=$(cat /root/cloudflare/getip.txt | sed -n '2p') #IP2
+Value=$(cat $folder/getip.txt | sed -n '2p') #IP2
 TTL=3600
-RecordId=1617539160
+RecordId=
+Status=ENABLE
+
 payloadtmp="{\"Domain\":\"$Domain\",\"SubDomain\":\"$SubDomain\",\"RecordType\":\"$RecordType\",\"RecordLine\":\"$RecordLine\",\"Value\":\"$Value\",\"TTL\":$TTL,\"Status\":\"$ENABLE\",\"RecordId\":$RecordId}"
 payload=$(echo $payloadtmp |iconv -t utf-8)
 echo $payload
