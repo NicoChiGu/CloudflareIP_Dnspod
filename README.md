@@ -27,7 +27,7 @@
 - 3、运行脚本
 
 ### 如何获取RecordID
-- 访问腾讯云 [云API]([https://console.cloud.tencent.com/api/explorer?Product=dnspod&Version=2021-03-23&Action=DescribeRecordList))
+- 访问腾讯云 [云API](https://console.cloud.tencent.com/api/explorer?Product=dnspod&Version=2021-03-23&Action=DescribeRecordList)
 - 填写domain和subdomain 找到之前添加的Value值,就可以定位RecordId
 - ![image](https://github.com/NicoChiGu/CloudflareIP_Dnspod/assets/34607782/06542ee6-7f0f-48f2-aa09-6cba1419577f)
 
