@@ -25,7 +25,7 @@
 | Status | 记录状态(启用/暂停) | ENABLE |
 
 - 3、运行脚本
-
+- 4、基于脚本权限,配合crontab和systemd可以定时进行IP替换
 ### 如何获取RecordID
 - 访问腾讯云 [云API](https://console.cloud.tencent.com/api/explorer?Product=dnspod&Version=2021-03-23&Action=DescribeRecordList)
 - 填写domain和subdomain 找到之前添加的Value值,就可以定位RecordId
