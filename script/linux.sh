@@ -3,6 +3,7 @@
 
 #此处修改CloudflareST程序储存的位置,并给予权限 chmod +x CloudflareST
 folder=/root/cloudflare
+#
 $folder/CloudflareST -p 10 
 rm $folder/getip.txt
 cut -d ',' -f 1 $folder/result.csv | head -n 3 | tail -n 2 >> $folder/getip.txt
