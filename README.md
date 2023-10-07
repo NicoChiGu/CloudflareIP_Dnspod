@@ -21,7 +21,7 @@
 | RecordLine | 线路模式 | 默认,电信,联通... |
 | Value | 值(IP、域名) | 此参数无需修改,从[CloudflareSpeedTest](https://github.com/XIU2/CloudflareSpeedTest)中获取|
 | TTL | TTL值 | 600-604800 |
-| RecordId | 记录ID | [获取方式]() |
+| RecordId | 记录ID | [获取方式](/README.md#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96recordid) |
 | Status | 记录状态(启用/暂停) | ENABLE |
 
 - 3、运行脚本
