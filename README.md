@@ -7,7 +7,7 @@
 此方法需要先进行一次记录的添加,使用API方式修改记录的IP地址。
 ###
 ### 使用方法:
-- 1、安装OpenSSL XXD `sudo apt install openssl xxd` [下载运行程序](https://github.com/XIU2/CloudflareSpeedTest/releases/latest)
+- 1、安装OpenSSL XXD(进制转换) `sudo apt install openssl xxd` [下载运行程序](https://github.com/XIU2/CloudflareSpeedTest/releases/latest)
 - 2、修改脚本
 -   - 本脚本将[CloudflareSpeedTest](https://github.com/XIU2/CloudflareSpeedTest)中的CloudflareST二进制文件放置于`/root/cloudflare`中，可以手动修改`folder`变量到你安装的位置
     - 修改`SecretId` `SecretKey` 的变量值 [不知道在哪？点这里获取](https://console.cloud.tencent.com/cam/capi)
