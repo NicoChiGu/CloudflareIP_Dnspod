@@ -24,7 +24,7 @@ date=$(date -u -d @$timestamp +"%Y-%m-%d")
 ###CURL1 修改记录
 Domain=        #域名
 SubDomain=     #子域名
-RecordType=A      #记录模式(A,CHAME)
+RecordType=A      #记录模式(A,CNAME)
 RecordLine=默认   #线路模式(默认,电信,联通...)
 Value=$(cat $folder/getip.txt | sed -n '1p') #获取首个IP
 TTL=3600
