@@ -1,7 +1,7 @@
 #!/bin/sh
 #RUN CLOUDFLARETEST
 
-#此处修改CloudflareST程序储存的位置,并基于权限 chmod +x CloudflareST
+#此处修改CloudflareST程序储存的位置,并给予权限 chmod +x CloudflareST
 folder=/root/cloudflare
 $folder/CloudflareST -p 10 
 rm $folder/getip.txt
