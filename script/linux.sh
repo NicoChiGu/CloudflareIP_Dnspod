@@ -10,8 +10,10 @@ cat $folder/getip.txt
 
 
 ####全局变量
-SecretId="修改为你的云API SecretId"
-SecretKey="修改为你的云API SecretKey"
+SecretId="修改为你的云API SecretId!"
+SecretKey="修改为你的云API SecretKey!"
+
+###无需修改####
 service="dnspod"
 host="dnspod.tencentcloudapi.com"
 region=""
@@ -20,16 +22,17 @@ version="2021-03-23"
 algorithm="TC3-HMAC-SHA256"
 timestamp=$(date +%s)
 date=$(date -u -d @$timestamp +"%Y-%m-%d")
+###无需修改####
 
 ###CURL1 修改记录
-Domain=        #域名
-SubDomain=     #子域名
-RecordType=A      #记录模式(A,CNAME)
-RecordLine=默认   #线路模式(默认,电信,联通...)
+Domain=        #!域名
+SubDomain=     #!子域名
+RecordType=A      #!记录模式(A,CNAME)
+RecordLine=默认   #!线路模式(默认,电信,联通...)
 Value=$(cat $folder/getip.txt | sed -n '1p') #获取首个IP
 TTL=3600
-RecordId=       #记录ID
-Status=ENABLE        #启动记录
+RecordId=       #!记录ID
+Status=ENABLE        #!启动记录
 
 payloadtmp="{\"Domain\":\"$Domain\",\"SubDomain\":\"$SubDomain\",\"RecordType\":\"$RecordType\",\"RecordLine\":\"$RecordLine\",\"Value\":\"$Value\",\"TTL\":$TTL,\"Status\":\"$ENABLE\",\"RecordId\":$RecordId}"
 payload=$(echo $payloadtmp |iconv -t utf-8)
